@@ -67,11 +67,13 @@ class clsCode:
             # Индекс j - индекс в строке b
             j = 2**k - 1
             # Находим сумму
-            # b[j] = 0
-            # ...
-                # ...
-                    # ...
-                    # ...
+            b[j] = 0
+            # s - сумма по модулю 2 (b + e) x M[:,k]
+            for i in range(self.n):
+                if (b[i] == None or i==j):
+                    continue
+                b[j] += b[i] * self.M[i, k]
+                b[j] %= 2
         return b
 
     def makeError(self,b,e):
